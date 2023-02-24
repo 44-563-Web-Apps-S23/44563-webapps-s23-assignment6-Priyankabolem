@@ -38,7 +38,6 @@
             }
         }
     </script>
-
     <form action="">
         <label for="name">The hidden painter name</label>
         <input type="password" name="name" id="hidder-painter-name" value="Monet">
@@ -47,7 +46,6 @@
         <button type="submit" onclick="checkPainter()">Check the guess</button>
     </form>
     <div id="result">
-
     </div>
     <script>
         var good = localStorage.getItem("good") == null ? 0 : parseInt(localStorage.getItem("good"));
