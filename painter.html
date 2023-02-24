@@ -39,6 +39,37 @@
         }
     </script>
 
+    <form action="">
+        <label for="name">The hidden painter name</label>
+        <input type="password" name="name" id="hidder-painter-name" value="Monet">
+        <label for="painter">Guess the painter</label>
+        <input type="text" name="painter" id="guessed-painter-name">
+        <button type="submit" onclick="checkPainter()">Check the guess</button>
+    </form>
+    <div id="result">
+
+    </div>
+    <script>
+        var good = localStorage.getItem("good") == null ? 0 : parseInt(localStorage.getItem("good"));
+        var oops = localStorage.getItem("oops") == null ? 0 : parseInt(localStorage.getItem("oops"));
+        function checkPainter() {
+            var hiddenPainterName = document.getElementById("hidder-painter-name").value;
+            var guessedPainterName = document.getElementById("guessed-painter-name").value;
+            // console.log(hiddenPainterName,guessedPainterName);
+            if (hiddenPainterName == guessedPainterName) {
+                good = good + 1;
+                alert("You got it right")
+            } else {
+                oops = oops + 1;
+                alert("Sorry");
+            }
+            localStorage.setItem("good", good);
+            localStorage.setItem("oops", oops);
+            document.getElementById("result").innerHTML = "good: " + good + " oops: " + oops;
+
+        }
+        document.getElementById("result").innerHTML = "good: " + good + " oops: " + oops;
+    </script>
 </body>
 
 </html>
